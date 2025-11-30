@@ -1,29 +1,45 @@
 package Duelo;
-import java.util.Random;
+
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Random vida = new Random();
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
 
-        Integer vidaNaruto =   vida.nextInt(201);
-        Integer vidaSasuke = vida.nextInt(201);
+        System.out.println("==== CRIAÇÃO DE PERSONAGENS ====");
 
-        Personagem Naruto = new Personagem("Naruto", "Ninja",vidaNaruto);
-        Personagem Sasuke = new Personagem("Sasuke", "Uchiha",vidaSasuke);
+        System.out.print("Digite o nome do personagem 1: ");
+        String nome1 = sc.nextLine();
 
-        Naruto.apresentar();
-        Sasuke.apresentar();
+        System.out.print("Digite a classe do personagem 1: ");
+        String classe1 = sc.nextLine();
 
-        while(Naruto.getVida() > 0 && Sasuke.getVida() > 0){
-            Sasuke.atualizaVida(Naruto.atacar(), Naruto.getNome());
-            if(Sasuke.getVida() <= 0){
-                continue;
-            }
-            Naruto.atualizaVida(Sasuke.atacar(), Sasuke.getNome());
-        }
+        Integer vida1 = random.nextInt(201); // vida aleatória
+        Personagem p1 = new Personagem(nome1, classe1, vida1);
 
 
+        System.out.println("\nAgora o personagem 2:");
 
+        sc.nextLine();
+
+        System.out.print("Digite o nome do personagem 2: ");
+        String nome2 = sc.nextLine();
+
+        System.out.print("Digite a classe do personagem 2: ");
+        String classe2 = sc.nextLine();
+
+        Integer vida2 = random.nextInt(201); // vida aleatória
+        Personagem p2 = new Personagem(nome2, classe2, vida2);
+
+        // Mostra apresentação
+        System.out.println("\n==== PERSONAGENS CRIADOS ====");
+        p1.apresentar();
+        p2.apresentar();
+
+        // Batalha
+        Batalha batalha = new Batalha();
+        batalha.duelar(p1, p2);
     }
 }
