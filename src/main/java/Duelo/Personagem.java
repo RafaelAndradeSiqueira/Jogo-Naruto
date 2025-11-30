@@ -19,7 +19,7 @@ public class Personagem implements Ataque {
     }
 
     public Integer atacar(){
-        return random.nextInt(101); // dano até 100
+        return random.nextInt(101);
     }
 
     public String getNome(){ return nome; }

@@ -16,7 +16,7 @@ public class Main {
         System.out.print("Digite a classe do personagem 1: ");
         String classe1 = sc.nextLine();
 
-        Integer vida1 = random.nextInt(201); // vida aleatória
+        Integer vida1 = random.nextInt(201);
         Personagem p1 = new Personagem(nome1, classe1, vida1);
 
 
@@ -30,15 +30,13 @@ public class Main {
         System.out.print("Digite a classe do personagem 2: ");
         String classe2 = sc.nextLine();
 
-        Integer vida2 = random.nextInt(201); // vida aleatória
+        Integer vida2 = random.nextInt(201);
         Personagem p2 = new Personagem(nome2, classe2, vida2);
 
-        // Mostra apresentação
         System.out.println("\n==== PERSONAGENS CRIADOS ====");
         p1.apresentar();
         p2.apresentar();
 
-        // Batalha
         Batalha batalha = new Batalha();
         batalha.duelar(p1, p2);
     }
